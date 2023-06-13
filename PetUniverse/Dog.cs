@@ -2,10 +2,10 @@ namespace PetUniverse;
 
 class Dog : Pet
 {
-    public string FurColor { get; private set; }
-    public Dog(string name, string furColor) : base (name)
+    public string Breed { get; private set; }
+    public Dog(string name, string breed) : base (name)
     {
-        FurColor = furColor;
+        Breed = breed;
     }
     public override string Speak()
     {
@@ -15,7 +15,7 @@ class Dog : Pet
     {
         if (food == "Chicken")
         {
-            Love += 1;
+            Love += 5;
             return true;
         }
         else
@@ -25,6 +25,7 @@ class Dog : Pet
     }
     public override int Cuddle()
     {
-        return Love *= 10;
+        Love *= 10;
+        return Love;
     }
 }
