@@ -1,6 +1,6 @@
 namespace PetUniverse;
 
-class Dog : Pet
+public class Dog : Pet
 {
     public string Breed { get; private set; }
     public Dog(string name, string breed) : base (name)

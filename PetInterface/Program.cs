@@ -1,4 +1,5 @@
 ﻿using System;
+using PetUniverse;
 
 namespace PetInterface
 {
@@ -7,6 +8,7 @@ namespace PetInterface
         public static void Main()
         {
             PetInterface menu = new();
+            Menagerie menagerie = new();
             Console.WriteLine("{0}", menu.welcomeMessage);
         }
     }
