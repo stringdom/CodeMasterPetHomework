@@ -2,7 +2,7 @@
 public abstract class Pet
 {
     public string Name { get; private set; }
-    public int Love { get; private set; } = 0;
+    public int Love { get; set; } = 0;
     public Pet(string name)
     {
         if (string.IsNullOrEmpty(name))
@@ -15,6 +15,6 @@ public abstract class Pet
         }
     }
     public abstract string Speak();
-    public abstract bool Eat();
+    public abstract bool Eat(string food);
     public abstract int Cuddle();
 }
