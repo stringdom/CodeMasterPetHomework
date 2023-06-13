@@ -1,2 +1,26 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+namespace PetInterface
+{
+    class Program
+    {
+        public static void Main()
+        {
+            PetInterface menu = new();
+            Console.WriteLine("{0}", menu.welcomeMessage);
+        }
+    }
+
+    class PetInterface
+    {
+        public readonly string welcomeMessage = "Welcome to your menagerie";
+        public enum State
+        {
+            Exit,
+            MainSelect,
+            Create,
+            Act
+        }
+
+    }
+}
