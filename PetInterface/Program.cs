@@ -9,7 +9,12 @@ namespace PetInterface
         public static void Main()
         {
             Menagerie menagerie = new();
-            PetInterface menu = new(menagerie);
+            Pet myDog = new Dog("Muñeca", "Mix");
+            menagerie.List.Add(myDog);
+            menagerie.List[0].Cuddle();
+            menagerie.List[0].Eat("Chicken");
+            WriteLine(menagerie.List[0].Speak());
+            // PetInterface menu = new();
         }
     }
 
