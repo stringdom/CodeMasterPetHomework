@@ -1,4 +1,6 @@
-﻿using PetUniverse;
+﻿using static System.Console;
+using System.Globalization;
+using PetUniverse;
 
 namespace PetInterface
 {
@@ -27,6 +29,7 @@ namespace PetInterface
         {
             CurrentState = PetInterface.State.Create;
             InterfaceMenagerie = menagerie;
+            Write(welcomeMessage);
             while (CurrentState != PetInterface.State.Exit)
             {
                 switch (CurrentState)
@@ -42,6 +45,21 @@ namespace PetInterface
         public static Menagerie CreateList(Menagerie menagerie)
         {
             return menagerie; // TODO Implement the creation menu.
+        }
+        public static string GetTextFromUser(string prompt)
+        {
+            string? result = null;
+            while (string.IsNullOrWhiteSpace(result))
+            {
+                Clear();
+                Write(prompt);
+                result = ReadLine();
+                if (string.IsNullOrWhiteSpace(result))
+                {
+                    WriteLine("Not valid input string, try again.");
+                }
+            }
+            return result;
         }
     }
 }
