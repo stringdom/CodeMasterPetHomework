@@ -1,5 +1,4 @@
-﻿using System;
-using PetUniverse;
+﻿using PetUniverse;
 
 namespace PetInterface
 {
@@ -7,15 +6,16 @@ namespace PetInterface
     {
         public static void Main()
         {
-            PetInterface menu = new();
             Menagerie menagerie = new();
-            Console.WriteLine("{0}", menu.welcomeMessage);
+            PetInterface menu = new(menagerie);
         }
     }
 
     class PetInterface
     {
         public readonly string welcomeMessage = "Welcome to your menagerie";
+        public PetInterface.State CurrentState { get; private set; }
+        public Menagerie InterfaceMenagerie { get; private set; }
         public enum State
         {
             Exit,
@@ -23,6 +23,25 @@ namespace PetInterface
             Create,
             Act
         }
-
+        public PetInterface(Menagerie menagerie)
+        {
+            CurrentState = PetInterface.State.Create;
+            InterfaceMenagerie = menagerie;
+            while (CurrentState != PetInterface.State.Exit)
+            {
+                switch (CurrentState)
+                {
+                    case State.Create:
+                        InterfaceMenagerie = CreateList(InterfaceMenagerie);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        public static Menagerie CreateList(Menagerie menagerie)
+        {
+            return menagerie; // TODO Implement the creation menu.
+        }
     }
 }
